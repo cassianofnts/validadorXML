@@ -17,19 +17,17 @@ public class ValidadorXMLController {
 	@FXML
 	TableView<Municipio> tblMunicipio;
 	@FXML
-	TableColumn<Municipio, String> colEstabelecimento;
+	TableColumn<Municipio, String> colEstab;
 	@FXML
 	TableColumn<Municipio, Integer> colQtd;
 
 	public void impMunicipio() {
 		try {
 			List<Municipio> lista = GerenciaMunicipio.carregaMunicipios();
-			if (lista.isEmpty()) {
-				System.out.println("Nenhum Municipio");
-			} else {
-				colEstabelecimento.setCellValueFactory(new PropertyValueFactory<Municipio, String>("nome"));
+			if (!lista.isEmpty()) {
+				colEstab.setCellValueFactory(new PropertyValueFactory<Municipio, String>("nome"));
 				colQtd.setCellValueFactory(new PropertyValueFactory<Municipio, Integer>("qtd"));
-				for(Municipio x : lista) {
+				for (Municipio x : lista) {
 					tblMunicipio.getItems().add(x);
 				}
 			}
@@ -37,7 +35,9 @@ public class ValidadorXMLController {
 			e.printStackTrace();
 		}
 	}
+
 	public void limpaLista() {
-		
+		List<Municipio> listaRemover = tblMunicipio.getItems();
+		tblMunicipio.getItems().removeAll(listaRemover);
 	}
 }
