@@ -36,6 +36,8 @@ public class ValidadorXMLController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
+	}
+	public void limpaLista() {
+		
 	}
 }
