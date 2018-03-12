@@ -12,6 +12,8 @@ public class Principal {
 	}
 
 	void executar(List<Municipio> listaMunicipios) {
-
+		for(Municipio m : listaMunicipios) {
+			
+		}
 	}
 }
