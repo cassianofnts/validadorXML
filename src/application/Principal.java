@@ -1,6 +1,8 @@
 package application;
 
 import java.util.List;
+
+import arquivos.LeituraArquivos;
 import arquivos.Municipio;
 
 public class Principal {
@@ -13,7 +15,7 @@ public class Principal {
 
 	void executar(List<Municipio> listaMunicipios) {
 		for(Municipio m : listaMunicipios) {
-			
+			List<String> arquivos = LeituraArquivos.obterListaArquivos(m.getNome(), "xml");
 		}
 	}
 }
