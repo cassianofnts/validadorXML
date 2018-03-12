@@ -6,20 +6,21 @@ import java.util.List;
 import arquivos.GerenciaMunicipio;
 import arquivos.Municipio;
 import javafx.fxml.FXML;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class ValidadorXMLController {
-	@FXML
-	MenuItem menuImportar;
+
 	@FXML
 	TableView<Municipio> tblMunicipio;
 	@FXML
 	TableColumn<Municipio, String> colEstab;
 	@FXML
 	TableColumn<Municipio, Integer> colQtd;
+	@FXML
+	TextField txtData;
 
 	public void impMunicipio() {
 		try {
@@ -47,6 +48,10 @@ public class ValidadorXMLController {
 	public void executa() {
 		for (Municipio m : GerenciaMunicipio.getListaMunicipios()) {
 			System.out.println(m.getNome());
+		}
+		if (!GerenciaMunicipio.getListaMunicipios().isEmpty()) {
+			Principal p = new Principal(txtData.getText());
+			p.executar(GerenciaMunicipio.getListaMunicipios());
 		}
 	}
 }
