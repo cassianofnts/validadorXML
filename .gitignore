@@ -60,5 +60,8 @@ local.properties
 # JDT-specific (Eclipse Java Development Tools)		
 .classpath
 
+#FXML
+*.fxml
+
 
 # End of https://www.gitignore.io/api/eclipse
