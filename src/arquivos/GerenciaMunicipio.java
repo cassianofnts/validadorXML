@@ -19,7 +19,7 @@ public class GerenciaMunicipio {
 	static List<Municipio> listaMunicipios = new ArrayList<Municipio>();
 
 	public static List<Municipio> carregaMunicipios() throws IOException {
-		
+
 		String caminhoArquivo = GerenciaMunicipio.caminhoArquivo();
 		if (!caminhoArquivo.isEmpty()) {
 			try {
@@ -42,7 +42,7 @@ public class GerenciaMunicipio {
 				System.out.println("Arquivo Excel não encontrado!");
 			}
 		} else {
-		
+
 		}
 		return listaMunicipios;
 	}

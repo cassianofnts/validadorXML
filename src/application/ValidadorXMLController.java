@@ -26,6 +26,7 @@ public class ValidadorXMLController {
 			limpaTabela();
 			List<Municipio> lista = GerenciaMunicipio.carregaMunicipios();
 			if (!lista.isEmpty()) {
+				System.out.println("teste passou");
 				colEstab.setCellValueFactory(new PropertyValueFactory<Municipio, String>("nome"));
 				colQtd.setCellValueFactory(new PropertyValueFactory<Municipio, Integer>("qtd"));
 				for (Municipio x : lista) {
@@ -36,15 +37,15 @@ public class ValidadorXMLController {
 			e.printStackTrace();
 		}
 	}
-		
+
 	public void limpaTabela() {
 		List<Municipio> listaRemover = tblMunicipio.getItems();
 		tblMunicipio.getItems().removeAll(listaRemover);
 		GerenciaMunicipio.getListaMunicipios().clear();
 	}
-	
+
 	public void executa() {
-		for(Municipio m : GerenciaMunicipio.getListaMunicipios()) {
+		for (Municipio m : GerenciaMunicipio.getListaMunicipios()) {
 			System.out.println(m.getNome());
 		}
 	}
