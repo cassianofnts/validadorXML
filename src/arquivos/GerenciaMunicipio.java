@@ -16,9 +16,10 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 
 public class GerenciaMunicipio {
+	static List<Municipio> listaMunicipios = new ArrayList<Municipio>();
 
 	public static List<Municipio> carregaMunicipios() throws IOException {
-		List<Municipio> listaMunicipios = new ArrayList<Municipio>();
+		
 		String caminhoArquivo = GerenciaMunicipio.caminhoArquivo();
 		if (!caminhoArquivo.isEmpty()) {
 			try {
@@ -27,7 +28,7 @@ public class GerenciaMunicipio {
 				HSSFSheet sheetTeste = workbook.getSheetAt(0);
 				for (int i = 1; i <= sheetTeste.getLastRowNum(); i++) {
 					Row row = sheetTeste.getRow(i);
-					if (row.getCell(0).getStringCellValue().equalsIgnoreCase("s")) {
+					if (row.getCell(3).getStringCellValue().equalsIgnoreCase("s")) {
 						String nome = row.getCell(4).getStringCellValue();
 						int qtd = (int) row.getCell(13).getNumericCellValue();
 						Municipio m = new Municipio(nome, qtd);
@@ -43,6 +44,10 @@ public class GerenciaMunicipio {
 		} else {
 		
 		}
+		return listaMunicipios;
+	}
+
+	public static List<Municipio> getListaMunicipios() {
 		return listaMunicipios;
 	}
 
