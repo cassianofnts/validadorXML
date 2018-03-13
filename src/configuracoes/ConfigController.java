@@ -1,16 +1,15 @@
 package configuracoes;
 
-import javafx.stage.Stage;
+import javafx.fxml.FXML;
+import javafx.scene.layout.Pane;
 
 public class ConfigController {
 	
-	Stage configStage;
+	@FXML
+	Pane paneDiretorios;
 	
-	public ConfigController(Stage configStage){
-		this.configStage = configStage;
-	}
 	public void okClicked(){
-		this.configStage.close();
+
 	}
 }
 
