@@ -7,6 +7,11 @@ import javax.swing.JOptionPane;
 
 import arquivos.GerenciaMunicipio;
 import arquivos.Municipio;
+import configuracoes.ConfigController;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -65,6 +70,16 @@ public class ValidadorXMLController {
 	}
 
 	public void configDiretorios() {
-		System.out.println("teste");
+		try{
+			Stage dirStage = new Stage();
+			Pane root = (Pane) FXMLLoader.load(getClass().getResource("/fxml/configDiretorios.fxml"));
+			Scene dirScene = new Scene(root);
+			dirScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			dirStage.setScene(dirScene);
+			dirStage.setTitle("Configurar Stage");
+			dirStage.show();
+          }catch(Exception e) {
+        	  e.printStackTrace();
+          }
 	}
 }
