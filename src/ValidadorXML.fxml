@@ -31,7 +31,17 @@
             </Button>
          </children>
       </HBox>
-      <TableView fx:id="tblMunicipio" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0">
+      <MenuBar minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="600.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Configurações">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Diretórios" />
+                  <MenuItem mnemonicParsing="false" text="Tags" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TableView fx:id="tblMunicipio" layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="325.0" prefWidth="600.0">
         <columns>
           <TableColumn fx:id="colEstab" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="400.0" text="Chave Estabelecimento" />
           <TableColumn fx:id="colQtd" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="200.0" text="Quantidade" />

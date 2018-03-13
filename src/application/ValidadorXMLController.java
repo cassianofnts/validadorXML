@@ -3,6 +3,8 @@ package application;
 import java.io.IOException;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import arquivos.GerenciaMunicipio;
 import arquivos.Municipio;
 import javafx.fxml.FXML;
@@ -27,7 +29,6 @@ public class ValidadorXMLController {
 			limpaTabela();
 			List<Municipio> lista = GerenciaMunicipio.carregaMunicipios();
 			if (!lista.isEmpty()) {
-				System.out.println("teste passou");
 				colEstab.setCellValueFactory(new PropertyValueFactory<Municipio, String>("nome"));
 				colQtd.setCellValueFactory(new PropertyValueFactory<Municipio, Integer>("qtd"));
 				for (Municipio x : lista) {
@@ -46,12 +47,17 @@ public class ValidadorXMLController {
 	}
 
 	public void executa() {
-		for (Municipio m : GerenciaMunicipio.getListaMunicipios()) {
-			System.out.println(m.getNome());
-		}
 		if (!GerenciaMunicipio.getListaMunicipios().isEmpty()) {
-			Principal p = new Principal(txtData.getText());
-			p.executar(GerenciaMunicipio.getListaMunicipios());
+			if (!txtData.getText().isEmpty()) {
+				Principal p = new Principal(txtData.getText());
+				p.executar(GerenciaMunicipio.getListaMunicipios());
+			} else {
+				// txtData.setStyle("-fx-border-color: red ; -fx-border-width: 1px ;");
+				JOptionPane.showMessageDialog(null, "Digite a data!");
+
+			}
+		} else {
+			JOptionPane.showMessageDialog(null, "Cadastre os municipios");
 		}
 	}
 }
