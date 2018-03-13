@@ -35,7 +35,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="Configurações">
             <items>
-              <MenuItem mnemonicParsing="false" text="Diretórios" />
+              <MenuItem fx:id="mDiretorio" mnemonicParsing="false" onAction="#configDiretorios" text="Diretórios" />
                   <MenuItem mnemonicParsing="false" text="Tags" />
             </items>
           </Menu>

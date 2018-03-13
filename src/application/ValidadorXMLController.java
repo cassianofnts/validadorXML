@@ -12,6 +12,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.MenuItem;
 
 public class ValidadorXMLController {
 
@@ -23,6 +24,8 @@ public class ValidadorXMLController {
 	TableColumn<Municipio, Integer> colQtd;
 	@FXML
 	TextField txtData;
+	@FXML
+	MenuItem mDiretorio;
 
 	public void impMunicipio() {
 		try {
@@ -59,5 +62,9 @@ public class ValidadorXMLController {
 		} else {
 			JOptionPane.showMessageDialog(null, "Cadastre os municipios");
 		}
+	}
+
+	public void configDiretorios() {
+		System.out.println("teste");
 	}
 }
