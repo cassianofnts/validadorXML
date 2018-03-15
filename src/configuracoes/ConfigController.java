@@ -9,7 +9,7 @@ public class ConfigController {
 	Pane paneDiretorios;
 	
 	public void okClicked(){
-
+		System.out.println("teste");
 	}
 }
 
