@@ -49,7 +49,6 @@ public class DirController {
 		if(!diretorio.isEmpty()) {
 			txtExportacao.setText(diretorio);
 			d.setExportDir(diretorio);
-			
 		}else{
 			System.out.println("nada selecionado");
 		}

@@ -28,7 +28,7 @@ public class Diretorios {
 		String diretorio = "";
 		try {
 			Properties prop = this.getPropertyFile();
-			diretorio = prop.getProperty("dirExport");
+			diretorio = prop.getProperty("exportDir");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -40,7 +40,7 @@ public class Diretorios {
 		String diretorio = "";
 		try {
 			Properties prop = this.getPropertyFile();
-			diretorio = prop.getProperty("dirModelo");
+			diretorio = prop.getProperty("modeloDir");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -50,8 +50,18 @@ public class Diretorios {
 	public void setExportDir(String path) {
 		try {
 			Properties prop = this.getPropertyFile();
-			prop.setProperty("dirExport", path);
-			prop.store(new FileOutputStream("config.properties"), null);
+			prop.setProperty("exportDir", path);
+			prop.store(new FileOutputStream("resources\\config.properties"), null);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void setModeloDir(String path) {
+		try {
+			Properties prop = this.getPropertyFile();
+			prop.setProperty("modeloDir", path);;
+			prop.store(new FileOutputStream("resources\\config.properties"), null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
