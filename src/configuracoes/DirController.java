@@ -21,10 +21,9 @@ public class DirController {
 	@FXML
 	Button btnExportacao;
 
-	Diretorios d = new Diretorios();
-
 	@FXML
 	public void initialize() {
+		Diretorios d = new Diretorios();
 		txtModelo.setText(d.getDirModelo());
 		txtExportacao.setText(d.getDirExport());
 	}
@@ -35,16 +34,18 @@ public class DirController {
 	}
 
 	public void btnModeloClicked() {
+		Diretorios d = new Diretorios();
 		String diretorio = this.getDiretorio();
 		if(!diretorio.isEmpty()) {
 			txtModelo.setText(diretorio);
-			
+			d.setModeloDir(diretorio);
 		}else{
 			System.out.println("nada selecionado");
 		}
 	}
 
 	public void btnExportacaoClicked() {
+		Diretorios d = new Diretorios();
 		String diretorio = this.getDiretorio();
 		if(!diretorio.isEmpty()) {
 			txtExportacao.setText(diretorio);
