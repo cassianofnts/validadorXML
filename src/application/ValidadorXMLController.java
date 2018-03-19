@@ -59,7 +59,6 @@ public class ValidadorXMLController {
 				Principal p = new Principal(txtData.getText());
 				p.executar(GerenciaMunicipio.getListaMunicipios());
 			} else {
-				// txtData.setStyle("-fx-border-color: red ; -fx-border-width: 1px ;");
 				JOptionPane.showMessageDialog(null, "Digite a data!");
 
 			}
@@ -69,15 +68,16 @@ public class ValidadorXMLController {
 	}
 
 	public void configDiretorios() {
-		try{
+		try {
 			Stage dirStage = new Stage();
 			Pane root1 = (Pane) FXMLLoader.load(getClass().getResource("/fxml/configDiretorios.fxml"));
 			Scene dirScene = new Scene(root1);
 			dirStage.setScene(dirScene);
 			dirStage.setTitle("Configurar Stage");
 			dirStage.show();
-          }catch(Exception e) {
-        	  e.printStackTrace();
-          }
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
