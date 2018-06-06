@@ -21,7 +21,7 @@ public class GerenciaMunicipio {
 	public static List<Municipio> carregaMunicipios() throws IOException {
 
 		String caminhoArquivo = GerenciaMunicipio.caminhoArquivo();
-		if (!caminhoArquivo.isEmpty()) {
+		if (!(caminhoArquivo == null)) {
 			try {
 				FileInputStream arquivo = new FileInputStream(new File(caminhoArquivo));
 				HSSFWorkbook workbook = new HSSFWorkbook(arquivo);
@@ -42,7 +42,8 @@ public class GerenciaMunicipio {
 				System.out.println("Arquivo Excel não encontrado!");
 			}
 		} else {
-
+			System.out.println("Passou no else do excel");
+			listaMunicipios = null;
 		}
 		return listaMunicipios;
 	}
@@ -60,9 +61,16 @@ public class GerenciaMunicipio {
 		if (resposta == JFileChooser.APPROVE_OPTION) {
 			arquivo = chooser.getSelectedFile().getAbsolutePath();
 		} else {
-			arquivo = "";
+			arquivo = null;
 		}
+		System.out.println(arquivo);
 		return arquivo;
+	}
+
+	public static void setListaMunicipios(List<Municipio> lista) {
+		GerenciaMunicipio.getListaMunicipios().clear();
+		listaMunicipios.addAll(lista);
+		
 	}
 
 }

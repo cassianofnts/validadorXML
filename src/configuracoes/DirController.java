@@ -20,10 +20,11 @@ public class DirController {
 	Button btnModelo;
 	@FXML
 	Button btnExportacao;
-
+	
+	Diretorios d = new Diretorios();
 	@FXML
 	public void initialize() {
-		Diretorios d = new Diretorios();
+		//Diretorios d = new Diretorios();
 		txtModelo.setText(d.getDirModelo());
 		txtExportacao.setText(d.getDirExport());
 	}

@@ -24,7 +24,7 @@
                   <Insets left="50.0" top="12.5" />
                </HBox.margin>
             </TextField>
-            <Button fx:id="btnExecutar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#executa" prefHeight="25.0" prefWidth="70.0" text="Executar">
+            <Button fx:id="btnExecutar" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#executa" prefHeight="25.0" prefWidth="70.0" text="Executar">
                <HBox.margin>
                   <Insets left="10.0" top="12.5" />
                </HBox.margin>
