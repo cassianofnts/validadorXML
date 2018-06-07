@@ -16,12 +16,14 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 
 public class GerenciaMunicipio {
-	static List<Municipio> listaMunicipios = new ArrayList<Municipio>();
 
-	public static List<Municipio> carregaMunicipios() throws IOException {
+	List<Municipio> listaMunicipios;
 
-		String caminhoArquivo = GerenciaMunicipio.caminhoArquivo();
+	public List<Municipio> carregaMunicipios() throws IOException {
+
+		String caminhoArquivo = this.caminhoArquivo();
 		if (!(caminhoArquivo == null)) {
+			listaMunicipios = new ArrayList<Municipio>();
 			try {
 				FileInputStream arquivo = new FileInputStream(new File(caminhoArquivo));
 				HSSFWorkbook workbook = new HSSFWorkbook(arquivo);
@@ -42,17 +44,16 @@ public class GerenciaMunicipio {
 				System.out.println("Arquivo Excel não encontrado!");
 			}
 		} else {
-			System.out.println("Passou no else do excel");
 			listaMunicipios = null;
 		}
 		return listaMunicipios;
 	}
 
-	public static List<Municipio> getListaMunicipios() {
+	public List<Municipio> getListaMunicipios() {
 		return listaMunicipios;
 	}
 
-	public static String caminhoArquivo() {
+	public String caminhoArquivo() {
 		JFileChooser chooser = new JFileChooser();
 		String arquivo;
 		FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.xls,  *.xlsx", "xls", "xlsx");
@@ -63,14 +64,7 @@ public class GerenciaMunicipio {
 		} else {
 			arquivo = null;
 		}
-		System.out.println(arquivo);
 		return arquivo;
-	}
-
-	public static void setListaMunicipios(List<Municipio> lista) {
-		GerenciaMunicipio.getListaMunicipios().clear();
-		listaMunicipios.addAll(lista);
-		
 	}
 
 }

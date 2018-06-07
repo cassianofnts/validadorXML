@@ -14,7 +14,7 @@ public class Principal {
 	}
 
 	void executar(List<Municipio> listaMunicipios) {
-		for(Municipio m : listaMunicipios) {
+		for (Municipio m : listaMunicipios) {
 			List<String> arquivos = LeituraArquivos.obterListaArquivos(m.getNome(), "xml");
 			System.out.println(arquivos.get(1));
 		}

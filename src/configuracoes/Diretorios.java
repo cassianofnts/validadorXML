@@ -56,11 +56,12 @@ public class Diretorios {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void setModeloDir(String path) {
 		try {
 			Properties prop = this.getPropertyFile();
-			prop.setProperty("modeloDir", path);;
+			prop.setProperty("modeloDir", path);
+			;
 			prop.store(new FileOutputStream("resources\\config.properties"), null);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -1,7 +1,6 @@
 package application;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -11,11 +10,11 @@ import arquivos.Municipio;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -33,22 +32,22 @@ public class ValidadorXMLController {
 	@FXML
 	MenuItem mDiretorio;
 	@FXML
-	Button	btnExecutar;
+	Button btnExecutar;
+
+	GerenciaMunicipio gerencia = new GerenciaMunicipio();
 
 	public void impMunicipio() {
 		try {
 			colEstab.setCellValueFactory(new PropertyValueFactory<Municipio, String>("nome"));
 			colQtd.setCellValueFactory(new PropertyValueFactory<Municipio, Integer>("qtd"));
-			List<Municipio> lista = GerenciaMunicipio.carregaMunicipios();
-			if (!(lista== null)) {
-				System.out.println("Passou no if");
-				lista = GerenciaMunicipio.getListaMunicipios();
+
+			List<Municipio> lista = gerencia.carregaMunicipios();
+			if (!(lista == null)) {
 				limpaTabela();
-				GerenciaMunicipio.setListaMunicipios(lista);
 				for (Municipio x : lista) {
-					System.out.println("Passou no for");
 					tblMunicipio.getItems().add(x);
 				}
+
 				btnExecutar.setDisable(false);
 			}
 		} catch (IOException e) {
@@ -60,19 +59,14 @@ public class ValidadorXMLController {
 		List<Municipio> listaRemover = tblMunicipio.getItems();
 		tblMunicipio.getItems().removeAll(listaRemover);
 		btnExecutar.setDisable(true);
+		txtData.clear();
 	}
 
 	public void executa() {
-		if (!GerenciaMunicipio.getListaMunicipios().isEmpty()) {
-			if (!txtData.getText().isEmpty()) {
-				//Principal p = new Principal(txtData.getText());
-				System.out.println(GerenciaMunicipio.getListaMunicipios());
-			} else {
-				JOptionPane.showMessageDialog(null, "Digite a data!");
-
-			}
+		if (!txtData.getText().isEmpty()) {
+			// Principal p = new Principal(txtData.getText());
 		} else {
-			JOptionPane.showMessageDialog(null, "Cadastre os municipios");
+			JOptionPane.showMessageDialog(null, "Digite a data!");
 		}
 	}
 
@@ -84,9 +78,10 @@ public class ValidadorXMLController {
 			dirStage.setScene(dirScene);
 			dirStage.setTitle("Configurar Stage");
 			dirStage.show();
-		
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+
 }
