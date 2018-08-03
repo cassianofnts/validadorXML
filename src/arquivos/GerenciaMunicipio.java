@@ -18,10 +18,10 @@ import org.apache.poi.ss.usermodel.Row;
 public class GerenciaMunicipio {
 
 	List<Municipio> listaMunicipios;
-
+	
+	String caminhoArquivo = this.caminhoArquivo();
+	
 	public List<Municipio> carregaMunicipios() throws IOException {
-
-		String caminhoArquivo = this.caminhoArquivo();
 		if (!(caminhoArquivo == null)) {
 			listaMunicipios = new ArrayList<Municipio>();
 			try {

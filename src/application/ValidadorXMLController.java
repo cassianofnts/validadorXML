@@ -34,9 +34,11 @@ public class ValidadorXMLController {
 	@FXML
 	Button btnExecutar;
 
-	GerenciaMunicipio gerencia = new GerenciaMunicipio();
-
 	public void impMunicipio() {
+		
+
+		GerenciaMunicipio gerencia = new GerenciaMunicipio();
+
 		try {
 			colEstab.setCellValueFactory(new PropertyValueFactory<Municipio, String>("nome"));
 			colQtd.setCellValueFactory(new PropertyValueFactory<Municipio, Integer>("qtd"));
@@ -64,7 +66,7 @@ public class ValidadorXMLController {
 
 	public void executa() {
 		if (!txtData.getText().isEmpty()) {
-			// Principal p = new Principal(txtData.getText());
+			//Principal p = new Principal(txtData.getText());
 		} else {
 			JOptionPane.showMessageDialog(null, "Digite a data!");
 		}
